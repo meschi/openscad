@@ -517,6 +517,15 @@ public:
   static SettingsEntryDouble axisDeadzone6;
   static SettingsEntryDouble axisDeadzone7;
   static SettingsEntryDouble axisDeadzone8;
+  static SettingsEntryDouble axisGain0;
+  static SettingsEntryDouble axisGain1;
+  static SettingsEntryDouble axisGain2;
+  static SettingsEntryDouble axisGain3;
+  static SettingsEntryDouble axisGain4;
+  static SettingsEntryDouble axisGain5;
+  static SettingsEntryDouble axisGain6;
+  static SettingsEntryDouble axisGain7;
+  static SettingsEntryDouble axisGain8;
   static SettingsEntryInt joystickNr;
 
   static void visit(const SettingsVisitor& visitor);

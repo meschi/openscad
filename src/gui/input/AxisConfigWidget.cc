@@ -145,6 +145,15 @@ void AxisConfigWidget::init()
     if (spinDeadZone) {
       initUpdateDoubleSpinBox(spinDeadZone, InputEventMapper::axisDeadzoneSettings(i));
     }
+    auto spinGain = this->findChild<QDoubleSpinBox *>(QString("doubleSpinBoxGain%1").arg(i));
+    if (spinGain) {
+      initUpdateDoubleSpinBox(spinGain, InputEventMapper::axisGainSettings(i));
+      connect(spinGain, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, [this, i](double val) {
+        InputEventMapper::axisGainSettings(i).setValue(val);
+        emit inputCalibrationChanged();
+        writeSettings();
+      });
+    }
   }
 
   initUpdateDoubleSpinBox(this->doubleSpinBoxTranslationGain, Settings::Settings::inputTranslationGain);

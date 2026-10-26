@@ -46,6 +46,7 @@ private:
   double axisRawValue[Settings::max_axis];
   double axisTrimValue[Settings::max_axis];
   double axisDeadzone[Settings::max_axis];
+  double axisGain[Settings::max_axis];
   QString actions[Settings::max_buttons];
   int translate[6];
   int rotate[6];
@@ -95,6 +96,7 @@ public:
   static Settings::SettingsEntryString& inputButtonSettings(size_t id);
   static Settings::SettingsEntryDouble& axisTrimSettings(size_t id);
   static Settings::SettingsEntryDouble& axisDeadzoneSettings(size_t id);
+  static Settings::SettingsEntryDouble& axisGainSettings(size_t id);
 
 private slots:
   void onTimer();

@@ -375,6 +375,15 @@ SettingsEntryDouble Settings::axisDeadzone5("input", "axisDeadzone5", 0.0, 0.01,
 SettingsEntryDouble Settings::axisDeadzone6("input", "axisDeadzone6", 0.0, 0.01, 1.0, 0.10);
 SettingsEntryDouble Settings::axisDeadzone7("input", "axisDeadzone7", 0.0, 0.01, 1.0, 0.10);
 SettingsEntryDouble Settings::axisDeadzone8("input", "axisDeadzone8", 0.0, 0.01, 1.0, 0.10);
+SettingsEntryDouble Settings::axisGain0("input", "axisGain0", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain1("input", "axisGain1", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain2("input", "axisGain2", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain3("input", "axisGain3", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain4("input", "axisGain4", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain5("input", "axisGain5", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain6("input", "axisGain6", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain7("input", "axisGain7", 0.01, 0.01, 9.99, 1.00);
+SettingsEntryDouble Settings::axisGain8("input", "axisGain8", 0.01, 0.01, 9.99, 1.00);
 
 SettingsEntryInt Settings::joystickNr("input", "joystickNr", 0, 9, 0);
 

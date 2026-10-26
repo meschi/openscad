@@ -53,6 +53,7 @@ InputEventMapper::InputEventMapper()
     axisRawValue[a] = 0.0;
     axisTrimValue[a] = 0.0;
     axisDeadzone[a] = 0.1;
+    axisGain[a] = 1.0;
   }
   for (size_t a = 0; a < getMaxButtons(); ++a) {
     button_state[a] = false;
@@ -111,7 +112,7 @@ double InputEventMapper::getAxisValue(int config)
   if (val < axisDeadzone[idx] and -val < axisDeadzone[idx]) {
     val = 0;
   }
-  return scale(val);
+  return scale(val) * axisGain[idx];
 }
 
 bool InputEventMapper::generateDeferredEvents()
@@ -296,6 +297,7 @@ void InputEventMapper::onInputCalibrationUpdated()
   for (size_t i = 0; i < getMaxAxis(); ++i) {
     axisTrimValue[i] = axisTrimSettings(i).value();
     axisDeadzone[i] = axisDeadzoneSettings(i).value();
+    axisGain[i] = axisGainSettings(i).value();
   }
   considerGeneratingDeferredEvents();
 }
@@ -350,6 +352,15 @@ Settings::SettingsEntryDouble& InputEventMapper::axisDeadzoneSettings(size_t id)
   const std::array<Settings::SettingsEntryDouble *, getMaxAxis()> entries{
     &S::axisDeadzone0, &S::axisDeadzone1, &S::axisDeadzone2, &S::axisDeadzone3, &S::axisDeadzone4,
     &S::axisDeadzone5, &S::axisDeadzone6, &S::axisDeadzone7, &S::axisDeadzone8};
+  assert(id >= 0 && id < entries.size());
+  return *entries[id];
+}
+
+Settings::SettingsEntryDouble& InputEventMapper::axisGainSettings(size_t id)
+{
+  const std::array<Settings::SettingsEntryDouble *, getMaxAxis()> entries{
+    &S::axisGain0, &S::axisGain1, &S::axisGain2, &S::axisGain3, &S::axisGain4,
+    &S::axisGain5, &S::axisGain6, &S::axisGain7, &S::axisGain8};
   assert(id >= 0 && id < entries.size());
   return *entries[id];
 }
